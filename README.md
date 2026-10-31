@@ -16,7 +16,7 @@ A rigorous, end-to-end textbook and practical course guide on Machine Learning. 
 ## Course Curriculum & Repository Structure
 
 ```
-ml_class_book/
+CSAI2020_2026/
 ├── 01_mathematical_foundations/
 │   ├── 01_linear_algebra/             # Ch 01: Vector spaces, norms, spans, projections, eigendecomposition
 │   └── 02_multivariate_calculus/       # Ch 02: Gradients, Hessians, Taylor series, steepest descent
