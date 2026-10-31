@@ -78,6 +78,10 @@ Each module includes:
 * **Unit 9.1: Model Inference and Interpretability** (`09_model_interpretability_and_inference/`)  
   Statistical inference in linear models (standard errors, $t$-statistics, $p$-values, confidence intervals, Cohen's $f^2$ effect sizes, odds ratios) and non-linear model explainability (Permutation Feature Importance, Partial Dependence Plots, ICE curves, LIME, and SHAP).
 
+### Part 10: Deep Learning Foundations
+* **Unit 10.1: Feedforward Neural Networks: Functional Approximation, Backpropagation, and Deep Training Dynamics** (`10_neural_networks/`)  
+  Universal continuous functional approximation (Cybenko, Hornik), depth vs. width exponential space-folding, activation function mechanics (Sigmoid, Tanh, ReLU, Leaky ReLU, ELU, Swish, GELU), why symbolic differentiation fails, Backpropagation as reverse-mode automatic differentiation with a full step-by-step by-hand numerical walkthrough, regularization ($L_2$ weight decay, Dropout, Batch Normalization), learning rate annealing (Cosine, SGDR, warmup), batch size dynamics (flat vs. sharp minima, linear scaling rule, critical batch size), and deep training stability tricks.
+
 ---
 
 ## Datasets
