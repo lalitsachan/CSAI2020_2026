@@ -35,4 +35,5 @@ Thumbs.db
 # Helper scripts
 compile_all.py
 fix_tex.py
+create_notebooks.py
 

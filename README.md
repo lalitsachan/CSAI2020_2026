@@ -23,32 +23,32 @@ CSAI2020_2026/
 ├── 02_ml_fundamentals_and_pipelines/
 │   ├── 01_anatomy_of_a_model/          # Ch 03: The 3 fundamental questions, loss functions (MSE, MAE, NLL)
 │   ├── 02_loss_functions_and_metrics/  # Ch 04: Confusion matrix, Precision/Recall, F-beta, KS, ROC/AUC
-│   ├── 03_data_processing_pipelines/   # Ch 05: Difference test, missing value handling, dummy traps, cyclic encodings
-│   └── 04_optimizers_in_depth/         # Ch 06: Gradient descent proof, LR dynamics, Momentum, RMSProp, Adam
+│   ├── 03_data_processing_pipelines/   # Ch 05: Data cleaning pipelines [Lab: data_preprocessing_lab.ipynb]
+│   └── 04_optimizers_in_depth/         # Ch 06: SGD, Momentum, Adam [Lab: optimizers_visualization_lab.ipynb]
 ├── 03_linear_and_parametric_models/
-│   ├── 01_linear_regression/           # Ch 07: Normal equations derivation, Gauss-Markov BLUE, residual diagnostics
-│   ├── 02_regularization_l1_l2/        # Ch 08: Bias-Variance decomposition, Ridge L2, Lasso L1 geometry, ElasticNet
-│   └── 03_logistic_regression/         # Ch 09: Sigmoid link, odds ratios, cross-entropy gradient, cutoff tuning
+│   ├── 01_linear_regression/           # Ch 07: Normal equations & BLUE [Lab: linear_regression_lab.ipynb]
+│   ├── 02_regularization_l1_l2/        # Ch 08: Ridge L2 & Lasso L1 geometry [Lab: regularization_l1_l2_lab.ipynb]
+│   └── 03_logistic_regression/         # Ch 09: Sigmoid link & KS cutoffs [Lab: logistic_regression_lab.ipynb]
 ├── 04_classical_and_instance_models/
-│   ├── 01_k_nearest_neighbors/         # Ch 10: Minkowski metrics, curse of dimensionality, KD/Ball-trees
-│   ├── 02_naive_bayes/                 # Ch 11: Generative Bayes, conditional independence, Laplace smoothing
-│   └── 03_support_vector_machines/     # Ch 12: Margin maximization, primal/dual QP, KKT conditions, Kernel trick
+│   ├── 01_k_nearest_neighbors/         # Ch 10: Minkowski spaces & scaling [Lab: knn_lab.ipynb]
+│   ├── 02_naive_bayes/                 # Ch 11: Text classification with TF-IDF [Lab: naive_bayes_lab.ipynb]
+│   └── 03_support_vector_machines/     # Ch 12: Margin maximization & RBF kernel [Lab: svm_lab.ipynb]
 ├── 05_tree_based_and_ensemble_models/
-│   ├── 01_decision_trees/              # Ch 13: Recursive partitioning, Gini/Entropy arithmetic, pruning
-│   ├── 02_bagging_rf_extra_trees/      # Ch 14: Variance reduction proof, OOB (1-1/e), decorrelation, Extra Trees
-│   └── 03_hyperparameter_tuning/       # Ch 15: K-fold CV, stratified/group splits, Bergstra-Bengio random search
+│   ├── 01_decision_trees/              # Ch 13: Recursive partitioning & Gini [Lab: decision_trees_lab.ipynb]
+│   ├── 02_bagging_rf_extra_trees/      # Ch 14: Bagging, RF & Extra Trees [Lab: random_forest_extra_trees_lab.ipynb]
+│   └── 03_hyperparameter_tuning/       # Ch 15: Grid vs Random Search [Lab: hyperparameter_tuning_lab.ipynb]
 ├── 06_boosting_machines/
-│   ├── 01_gradient_boosting_machines/  # Ch 16: Sequential error correction, functional gradient descent, shrinkage
-│   ├── 02_xgboost/                     # Ch 17: 2nd-order Taylor objective, leaf weights w*, optimal split gain
-│   └── 03_catboost/                    # Ch 18: Ordered Target Statistics, leakage elimination, oblivious trees
+│   ├── 01_gradient_boosting_machines/  # Ch 16: Sequential error correction & shrinkage
+│   ├── 02_xgboost/                     # Ch 17: 2nd-order Taylor objective & gain [Lab: xgboost_lab.ipynb]
+│   └── 03_catboost/                    # Ch 18: Ordered Target Statistics & oblivious trees
 ├── 07_unsupervised_learning/
-│   ├── 01_proximity_and_hierarchical/  # Ch 19: Distance matrices, linkages (Single, Complete, Average, Ward ESS)
-│   ├── 02_kmeans_and_pam/              # Ch 20: Inertia, Voronoi cells, Lloyd's proof, K-Means++, PAM/Medoids
-│   ├── 03_dbscan/                      # Ch 21: Density reachability, core/border/noise, k-distance knee heuristic
-│   └── 04_pca/                         # Ch 22: Maximum variance, covariance eigendecomposition, SVD, scree plots
+│   ├── 01_proximity_and_hierarchical/  # Ch 19: Distance matrices & dendrograms [Lab: hierarchical_clustering_lab.ipynb]
+│   ├── 02_kmeans_and_pam/              # Ch 20: K-Means, K-Medoids & Silhouette [Lab: kmeans_and_pam_lab.ipynb]
+│   ├── 03_dbscan/                      # Ch 21: Density reachability & noise [Lab: dbscan_lab.ipynb]
+│   └── 04_pca/                         # Ch 22: Covariance eigendecomposition & SVD [Lab: pca_lab.ipynb]
 ├── 08_appendix/
-│   ├── 01_numpy_crash_course/          # App A: ndarray buffers, strides, vectorization, broadcasting, SIMD
-│   └── 02_pandas_data_wrangling/       # App B: Columnar storage, BlockManager, downcasting, groupby, dummy alignment
+│   ├── 01_numpy_crash_course/          # App A: Strides, SIMD & broadcasting [Lab: numpy_hands_on.ipynb]
+│   └── 02_pandas_data_wrangling/       # App B: Columnar storage & groupby [Lab: pandas_hands_on.ipynb]
 ├── data/                               # Centralized real-world datasets
 │   ├── bd_train.csv & bd_test.csv      # Bank deposit subscription campaign
 │   ├── loan_data_train.csv & test.csv  # Peer-to-peer credit risk and interest rates
