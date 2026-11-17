@@ -40,9 +40,9 @@ def report(results, n_top=3):
 
 class VarSelect(BaseEstimator, TransformerMixin):
     
-    def __init__(self,feature_names=[]) :
+    def __init__(self,feature_names=None) :
         
-        self.feature_names=feature_names 
+        self.feature_names=list(feature_names) if feature_names is not None else []
         
     def fit(self,x,y=None):
         
@@ -70,6 +70,7 @@ class ConvertToNumeric(BaseEstimator,TransformerMixin):
     
     def transform(self,x,y=None):
 
+        x=x.copy()      # never modify the caller's data
         for col in x.columns:
 
             x[col]=pd.to_numeric(x[col],errors='coerce')
@@ -82,27 +83,31 @@ class ConvertToNumeric(BaseEstimator,TransformerMixin):
 
 class MissingImputation(BaseEstimator,TransformerMixin):
     
-    def __init__(self,impute_dict={}):
+    def __init__(self,impute_dict=None):
         
+        # user-supplied fill values (column -> value); anything not given is learned in fit
         self.impute_dict=impute_dict
         self.feature_names=[]
         
     def fit(self,x,y=None):
         
+        # a fresh dict on every fit: a shared default dict would leak values learned on one
+        # dataset (or one cross-validation fold) into every other instance and refit
+        self.fill_values_=dict(self.impute_dict or {})
         self.feature_names=list(x.columns)
         for col in x.columns:
-            if col in self.impute_dict:
+            if col in self.fill_values_:
                 pass
             else:
                 if x[col].dtype=='O': 
-                    self.impute_dict[col]='__missing__'
+                    self.fill_values_[col]='__missing__'
                 else :
-                    self.impute_dict[col]=x[col].median()
+                    self.fill_values_[col]=x[col].median()
         return self
     
     def transform(self,x,y=None):
         
-        return x.fillna(self.impute_dict)
+        return x.fillna(self.fill_values_)
     
     def get_feature_names(self):
         
@@ -110,7 +115,7 @@ class MissingImputation(BaseEstimator,TransformerMixin):
     
 class CustomFunc(BaseEstimator,TransformerMixin):
 
-    def __init__(self,col_func_dict={}):
+    def __init__(self,col_func_dict=None):
 
         self.col_func_dict=col_func_dict 
         self.feature_names=[]
@@ -122,6 +127,7 @@ class CustomFunc(BaseEstimator,TransformerMixin):
     
     def transform(self,x,y=None):
 
+        x=x.copy()      # never modify the caller's data
         for col in x.columns:
             x[col]=self.col_func_dict[col](x[col]) 
         
@@ -141,6 +147,8 @@ class CreateDummies(BaseEstimator,TransformerMixin):
 
     def fit(self,x,y=None):
 
+        self.var_cat_dict={}
+        self.feature_names=[]
         self.freq_cutoff=x.shape[0]*self.freq_percent_cutoff
 
         for col in x.columns:
@@ -200,6 +208,7 @@ class DateComponents(BaseEstimator,TransformerMixin):
 
     def fit(self,x,y=None):
 
+        self.feature_names=[]
         for col in x.columns:
 
             for kind in ['week','month','month_day']:
@@ -234,7 +243,7 @@ class DateComponents(BaseEstimator,TransformerMixin):
             out_data[col+'_month_day_cos']=np.cos(2*np.pi*day/self.month_day_freq)
 
             if self.keep_year:
-                out_data[col+'_year']=x[col].dt.year
+                out_data[col+'_year']=out_data[col].dt.year
 
             del out_data[col]
 
@@ -252,6 +261,7 @@ class DateDiffs(BaseEstimator,TransformerMixin):
 
     def fit(self,x,y=None):
 
+        self.feature_names=[]
         cols=list(x.columns)            
         num_cols=len(x.columns)
 
@@ -300,6 +310,8 @@ class TextFeatures(BaseEstimator,TransformerMixin):
 
     def fit(self,x,y=None):
 
+        self.feature_names=[]
+        self.tfidfs={}
         for col in x.columns:
 
             self.tfidfs[col]=TfidfVectorizer(analyzer='word',stop_words='english',
