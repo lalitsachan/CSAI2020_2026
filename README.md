@@ -1,10 +1,26 @@
 # Machine Learning Course Notes (CSAI2020-2026)
 
-This repository contains lecture notes, reference PDFs, and accompanying Python notebooks for the Machine Learning course.
+Notes and notebooks for the Machine Learning course.
 
-Each topic includes:
-- **Theory notes** (`.tex` and compiled `.pdf`) covering mathematical derivations, algorithms, and geometric intuition.
-- **Accompanying notebooks** (`.ipynb`) with modular implementations, hyperparameter tuning guides, and code explanations.
+## How to read these notes
+
+Every topic has two parts, in the same folder:
+- **The notes** (the `.pdf`): the ideas, the maths, and examples worked by hand.
+- **The notebook** (the `.ipynb`): the code from the notes, on the course data. Run it alongside the notes and change things to see what happens.
+
+Read the PDF first, then run the notebook. Go through the topics in the order listed below; later notes build on earlier ones.
+
+Inside the notes, the coloured boxes mean:
+- **Blue boxes**: a key idea or formula worth remembering.
+- **Red "Trap" boxes**: a common mistake, often shown happening on real data.
+- **Gold "Worked example" boxes**: a calculation done by hand, step by step. Do it yourself with pen and paper before checking the code.
+- **Brown boxes**: a bit of history behind the method.
+- **Grey "Going further (optional)" boxes**: proofs and extra material you can skip on a first read.
+- **"Core ideas" boxes**: a short recap at the end.
+
+Each set of notes ends with a few easy **Try It Yourself** exercises; most can be checked in the notebook.
+
+The probability and statistics, NumPy and pandas appendices are listed early because the later notes use them; if you're already comfortable with them, skim them and come back when needed.
 
 ---
 
@@ -104,20 +120,3 @@ The notebooks use NumPy, pandas, matplotlib, scikit-learn, SciPy and statsmodels
 ```bash
 pip install xgboost catboost shap
 ```
-
-## Building the PDFs
-
-Each folder contains a standalone `.tex` file with its corresponding compiled `.pdf`. If you modify any LaTeX notes, you can compile all files using the automated script:
-
-```bash
-python3 compile_all.py
-```
-
-To recompile a single document:
-
-```bash
-cd 03_linear_and_parametric_models/01_linear_regression/
-pdflatex -interaction=nonstopmode linear_regression.tex
-pdflatex -interaction=nonstopmode linear_regression.tex
-```
-*(Running twice ensures tables of contents and cross-references resolve properly).*
