@@ -37,3 +37,12 @@ compile_all.py
 fix_tex.py
 create_notebooks.py
 
+
+# staging folder for raw lab downloads (small datasets are copied into each lab folder)
+ml_labs/_downloads/
+
+# lab datasets too big for git (download links are in each notebook)
+ml_labs/lab03_credit_card_fraud/data/creditcard.csv
+ml_labs/lab05_review_sentiment/data/amazon_review_polarity_csv/
+ml_labs/lab08_activity_recognition/data/OpportunityUCIDataset/
+ml_labs/lab13_iot_anomaly_detection/data/IoT Network Intrusion Dataset.csv

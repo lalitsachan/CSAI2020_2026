@@ -52,6 +52,8 @@ The folders keep their original names; the list below is the order to read them 
   Confusion matrix, Precision, Recall, $F_\beta$, ROC-AUC, PR curves, and classification thresholds.
 * **Optimizers in Detail** (`02_ml_fundamentals_and_pipelines/04_optimizers_in_depth/`)  
   Batch, stochastic, and mini-batch gradient descent, Polyak's Momentum, RMSprop, and Adam with analytical bias correction.
+* **Text as Features** (`02_ml_fundamentals_and_pipelines/05_text_as_features/`)  
+  Cleaning text, stopwords, stemming and lemmatisation, bag of words, TF-IDF worked by hand, n-grams, cosine similarity; read before Naive Bayes.
 
 ### Linear models
 * **Linear Regression from First Principles** (`03_linear_and_parametric_models/01_linear_regression/`)  
@@ -100,6 +102,12 @@ The folders keep their original names; the list below is the order to read them 
 ### Neural networks
 * **Feedforward Neural Networks** (`10_neural_networks/`)  
   Why non-linearity matters, XOR by hand, universal approximation, activation functions, backpropagation by hand (checked in NumPy), initialisation, regularisation, learning rate schedules and batch size, and MLPs on the bank and loan data with scikit-learn (no deep learning library needed).
+
+---
+
+## Labs
+
+The `ml_labs/` folder has fourteen lab experiments with complete, explained code, one folder each; see `ml_labs/README.md` for the list and how to work through them.
 
 ---
 
