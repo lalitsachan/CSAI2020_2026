@@ -46,3 +46,6 @@ ml_labs/lab03_credit_card_fraud/data/creditcard.csv
 ml_labs/lab05_review_sentiment/data/amazon_review_polarity_csv/
 ml_labs/lab08_activity_recognition/data/OpportunityUCIDataset/
 ml_labs/lab13_iot_anomaly_detection/data/IoT Network Intrusion Dataset.csv
+
+# LaTeX sources are private (PDFs are shared)
+*.tex
